@@ -1,3 +1,10 @@
 ---@class Options
 ---@field theme 'dark' | 'light'
 ---@field transparent boolean
+---@field italics table<string, boolean>
+---@field italics.comments boolean
+---@field italics.keywords boolean
+---@field italics.functions boolean
+---@field italics.strings boolean
+---@field italics.variables boolean
+---@field italics.bufferline boolean

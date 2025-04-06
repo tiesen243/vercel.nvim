@@ -28,8 +28,8 @@ M.replace = {
 }
 
 M.insert = {
-	a = { fg = colors.mainText, bg = colors.diff_add, gui = "bold" },
-	b = { fg = colors.diff_add, bg = colors.editorBackground },
+	a = { fg = colors.mainText, bg = colors.successText, gui = "bold" },
+	b = { fg = colors.successText, bg = colors.editorBackground },
 	c = { fg = colors.mainText, bg = config.transparent and "NONE" or colors.popupBackground },
 }
 

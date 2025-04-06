@@ -2,15 +2,16 @@ local config = require("vercel.config")
 local colors = require("vercel.colors")
 local utils = require("vercel.utils")
 
-local navic = require("vercel.integrations.navic")
-
 local M = {}
 
 ---@param options Options
 function M.setup(options)
 	setmetatable(config, { __index = vim.tbl_extend("force", config.defaults, options) })
 
-	navic.highlights(options)
+	M.integrations = {
+		navic = require("vercel.integrations.navic").highlights(options),
+		bufferline = require("vercel.integrations.bufferline").highlights(options),
+	}
 end
 
 function M.colorscheme()
@@ -30,7 +31,7 @@ end
 function M.set_terminal_colors()
 	vim.g.terminal_color_0 = colors.editorBackground
 	vim.g.terminal_color_1 = colors.syntaxKeyword
-	vim.g.terminal_color_2 = colors.diff_add
+	vim.g.terminal_color_2 = colors.successText
 	vim.g.terminal_color_3 = colors.syntaxProperty
 	vim.g.terminal_color_4 = colors.syntaxFunction
 	vim.g.terminal_color_5 = colors.syntaxConstant
@@ -50,7 +51,7 @@ end
 
 function M.set_groups()
 	local bg = config.transparent and "NONE" or colors.editorBackground
-	local diff_add = utils.shade(colors.diff_add, 0.5, colors.editorBackground)
+	local diff_add = utils.shade(colors.successText, 0.5, colors.editorBackground)
 	local diff_delete = utils.shade(colors.syntaxKeyword, 0.5, colors.editorBackground)
 	local diff_change = utils.shade(colors.syntaxFunction, 0.5, colors.editorBackground)
 	local diff_text = utils.shade(colors.syntaxProperty, 0.5, colors.editorBackground)
@@ -245,7 +246,7 @@ function M.set_groups()
 		["@punctuation.special"] = { fg = colors.syntaxKeyword },
 		["@punctuation.separator.keyvalue"] = { fg = colors.syntaxKeyword },
 
-		["@texcolorscheme.diff.add"] = { fg = colors.diff_add },
+		["@texcolorscheme.diff.add"] = { fg = colors.successText },
 		["@texcolorscheme.diff.delete"] = { fg = colors.errorText },
 
 		["@constant"] = { link = "Constant" },

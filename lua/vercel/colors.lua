@@ -1,4 +1,5 @@
 local config = require("vercel.config")
+local hsl = require("vercel.utils").hsl
 
 local M = {
 	standardWhite = "#ffffff",
@@ -6,73 +7,51 @@ local M = {
 }
 
 if vim.o.background == "light" then
-	M.editorBackground = "#ffffff"
-	M.sidebarBackground = "#ffffff"
-	M.popupBackground = "#ffffff"
-	M.floatingWindowBackground = "#ffffff"
-	M.menuOptionBackground = "#ffffff"
+	M.editorBackground = config.transparent and "NONE" or hsl(0, 0, 100)
+	M.popupBackground = hsl(240, 4.8, 95.9)
+	M.menuOptionBackground = hsl(0, 0, 74)
 
-	M.mainText = "#171717"
-	M.emphasisText = "#171717"
-	M.commandText = "#000000"
-	M.inactiveText = "#666666"
-	M.disabledText = "#b3b3b3"
-	M.lineNumberText = "#bdbdbd"
-	M.selectedText = "#d8d8d8"
-	M.inactiveSelectionText = "#999999"
+	M.mainText = hsl(240, 10, 3.9)
+	M.inactiveText = hsl(0, 0, 64)
+	M.lineNumberText = hsl(0, 0, 9)
+	M.lineNumberTextActive = hsl(0, 0, 74)
+	M.selectedText = hsl(0, 0, 85)
+	M.border = hsl(0, 0, 85)
 
-	M.windowBorder = "#d4d4d8"
-	M.focusedBorder = "#999999"
-	M.emphasizedBorder = "#666666"
+	M.syntaxConstant = hsl(211, 100, 42)
+	M.syntaxKeyword = hsl(336, 65, 45)
+	M.syntaxFunction = hsl(274, 71, 43)
+	M.syntaxProperty = hsl(0, 0, 4)
 
-	M.syntaxFunction = "#0066cc"
-	M.syntaxError = "#cc0000"
-	M.syntaxKeyword = "#6e4aff"
-	M.errorText = "#cc0000"
-	M.warningText = "#ff8800"
-	M.linkText = "#0066cc"
-	M.commentText = "#666666"
-	M.stringText = "#007f00"
-	M.successText = "#22863a"
-	M.warningEmphasis = "#cd9731"
-	M.specialKeyword = "#800080"
-	M.syntaxOperator = "#000000"
-	M.foregroundEmphasis = "#000000"
-	M.terminalGray = "#666666"
+	M.errorText = hsl(3, 62, 42)
+	M.warningText = hsl(24, 79, 43)
+	M.commentText = hsl(0, 0, 40)
+	M.stringText = hsl(139, 79, 28)
+	M.diff_add = hsl(142.1, 76.2, 36.3)
 else
-	M.editorBackground = "#000000"
-	M.sidebarBackground = "#000000"
-	M.popupBackground = "#000000"
-	M.floatingWindowBackground = "#000000"
-	M.menuOptionBackground = "#000000"
+	M.editorBackground = config.transparent and "NONE" or hsl(240, 10, 3.9)
+	M.sidebarBackground = hsl(240, 10, 3.9)
+	M.popupBackground = hsl(240, 3.7, 15.9)
+	M.floatingWindowBackground = hsl(0, 0, 13)
+	M.menuOptionBackground = hsl(0, 0, 17)
 
-	M.mainText = "#ededed"
-	M.emphasisText = "#ffffff"
-	M.commandText = "#ffffff"
-	M.inactiveText = "#999999"
-	M.disabledText = "#666666"
-	M.lineNumberText = "#2b2b2b"
-	M.selectedText = "#ededed"
-	M.inactiveSelectionText = "#ededed"
+	M.mainText = hsl(0, 0, 93)
+	M.inactiveText = hsl(0, 0, 64)
+	M.lineNumberText = hsl(0, 0, 30)
+	M.lineNumberTextActive = hsl(0, 0, 95)
+	M.selectedText = hsl(0, 0, 93)
+	M.border = hsl(0, 0, 13)
 
-	M.windowBorder = "#212121"
-	M.focusedBorder = "#212121"
-	M.emphasizedBorder = "#212121"
+	M.syntaxConstant = hsl(210, 100, 66)
+	M.syntaxKeyword = hsl(341, 90, 67)
+	M.syntaxFunction = hsl(275, 80, 71)
+	M.syntaxProperty = hsl(0, 0, 93)
 
-	M.syntaxFunction = "#c372fc"
-	M.syntaxError = "#d14d41"
-	M.syntaxKeyword = "#ff4c8d"
-	M.errorText = "#d13d41"
-	M.warningText = "#f27f35"
-	M.linkText = "#00ca51"
-	M.commentText = "#a3a3a3"
-	M.stringText = "#00ca51"
-	M.successText = "#50fa7b"
-	M.warningEmphasis = "#ffb86c"
-	M.specialKeyword = "#ff79c6"
-	M.syntaxOperator = "#f8f8f2"
-	M.foregroundEmphasis = "#ffffff"
-	M.terminalGray = "#999999"
+	M.errorText = hsl(5, 61, 54)
+	M.warningText = hsl(23, 88, 58)
+	M.commentText = hsl(0, 0, 64)
+	M.stringText = hsl(131, 43, 57)
+	M.diff_add = hsl(142.1, 76.2, 36.3)
 end
 
 return M

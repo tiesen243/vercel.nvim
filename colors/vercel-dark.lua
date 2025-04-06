@@ -1,2 +1,2 @@
-vim.o.background = "dark"
+vim.g.background = "dark"
 require("vercel").colorscheme()

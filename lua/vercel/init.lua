@@ -91,7 +91,7 @@ function M.set_groups()
 		},
 		Substitute = { link = "IncSearch" },
 		CursorLineNr = { fg = colors.commentText },
-		MatchParen = { fg = colors.syntaxKeyword, bg = bg },
+		MatchParen = { fg = colors.syntaxKeyword },
 		ModeMsg = { link = "Normal" },
 		MsgArea = { link = "Normal" },
 		-- MsgSeparator = {},

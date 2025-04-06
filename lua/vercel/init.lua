@@ -96,7 +96,7 @@ function M.set_groups()
 		MsgArea = { link = "Normal" },
 		-- MsgSeparator = {},
 		MoreMsg = { fg = colors.syntaxFunction },
-		NonText = { fg = utils.shade(colors.editorBackground, 0.30) },
+		NonText = { fg = colors.lineNumberText },
 		NormalFloat = { bg = colors.popupBackground },
 		FloatBorder = { fg = colors.border },
 		NormalNC = { link = "Normal" },

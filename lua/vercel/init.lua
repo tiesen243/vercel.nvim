@@ -1,17 +1,16 @@
 local config = require("vercel.config")
-
 local colors = require("vercel.colors")
 local utils = require("vercel.utils")
 
+local navic = require("vercel.integrations.navic")
+
 local M = {}
 
----@class Vercel
----@field theme 'dark' | 'light'
----@field transparent boolean
+---@param options Options
+function M.setup(options)
+	setmetatable(config, { __index = vim.tbl_extend("force", config.defaults, options) })
 
----@param values Vercel
-function M.setup(values)
-	setmetatable(config, { __index = vim.tbl_extend("force", config.defaults, values) })
+	navic.highlights(options)
 end
 
 function M.colorscheme()
@@ -86,7 +85,7 @@ function M.set_groups()
 		Folded = { fg = colors.mainText, bg = colors.popupBackground },
 		FoldColumn = { link = "SignColumn" },
 		IncSearch = {
-			bg = utils.mix(colors.syntaxFunction, colors.editorBackground, math.abs(0.30)),
+			bg = utils.mix(colors.syntaxConstant, colors.editorBackground, math.abs(0.30)),
 			fg = colors.editorBackground,
 		},
 		Substitute = { link = "IncSearch" },
@@ -97,7 +96,8 @@ function M.set_groups()
 		-- MsgSeparator = {},
 		MoreMsg = { fg = colors.syntaxFunction },
 		NonText = { fg = utils.shade(colors.editorBackground, 0.30) },
-		NormalFloat = { bg = colors.editorBackground },
+		NormalFloat = { bg = colors.popupBackground },
+		FloatBorder = { fg = colors.border },
 		NormalNC = { link = "Normal" },
 		Pmenu = { link = "NormalFloat" },
 		PmenuSel = { bg = colors.menuOptionBackground },

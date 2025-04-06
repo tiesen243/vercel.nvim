@@ -1,0 +1,3 @@
+---@class Options
+---@field theme 'dark' | 'light'
+---@field transparent boolean

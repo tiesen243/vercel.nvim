@@ -1,4 +1,4 @@
-local config = require("config")
+local config = require("vercel.config")
 
 local colorscheme = require("vercel.colors")
 local utils = require("vercel.utils")

@@ -1,15 +1,16 @@
 
 # Vercal Theme
 
-<br/>
-<br/>
+## Preview
 
-![preview](./assets/sample-preview.png) 
+### Light Theme
 
-<br/>
-<br/>
+![Light Theme](./assets/preview-light.png)
 
-</div>
+### Dark Theme
+
+![Dark Theme](./assets/preview-dark.png)
+
 
 ## Installation
 

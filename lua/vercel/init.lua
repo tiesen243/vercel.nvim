@@ -1,5 +1,5 @@
-local config = require("vercel.config")
 local colors = require("vercel.colors")
+local config = require("vercel.config")
 local utils = require("vercel.utils")
 
 local M = {}
@@ -9,8 +9,8 @@ function M.setup(options)
 	setmetatable(config, { __index = vim.tbl_extend("force", config.defaults, options) })
 
 	M.integrations = {
-		navic = require("vercel.integrations.navic").highlights(options),
-		bufferline = require("vercel.integrations.bufferline").highlights(options),
+		navic = require("vercel.integrations.navic").highlights(config),
+		bufferline = require("vercel.integrations.bufferline").highlights(config),
 	}
 end
 

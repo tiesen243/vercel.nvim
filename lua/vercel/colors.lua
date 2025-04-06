@@ -1,4 +1,4 @@
-local config = require("my-theme.config")
+local config = require("vercel.config")
 
 local M = {
 	standardWhite = "#ffffff",

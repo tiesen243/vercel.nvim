@@ -8,8 +8,9 @@ local M = {}
 function M.setup(options)
 	setmetatable(config, { __index = vim.tbl_extend("force", config.defaults, options) })
 
-	M.highlights = { bufferline = {} }
+	M.highlights = { bufferline = {}, navic = {} }
 	M.highlights.bufferline = require("vercel.integrations.bufferline").highlights(config)
+	M.highlights.navic = require("vercel.integrations.navic").highlights(config)
 end
 
 function M.colorscheme()
@@ -95,7 +96,7 @@ function M.set_groups()
 		-- MsgSeparator = {},
 		MoreMsg = { fg = colors.syntaxConstant },
 		NonText = { fg = colors.lineNumberText },
-		NormalFloat = { bg = colors.popupBackground },
+		NormalFloat = { bg = colors.floatingWindowBackground },
 		FloatBorder = { fg = colors.border },
 		NormalNC = { link = "Normal" },
 		Pmenu = { link = "NormalFloat" },
@@ -343,7 +344,6 @@ function M.set_groups()
 
 	-- integrations
 	groups = vim.tbl_extend("force", groups, require("vercel.integrations.cmp").highlights())
-	groups = vim.tbl_extend("force", groups, require("vercel.integrations.navic").highlights(config))
 
 	-- overrides
 	groups = vim.tbl_extend(

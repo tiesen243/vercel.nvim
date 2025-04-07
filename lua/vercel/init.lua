@@ -147,7 +147,7 @@ function M.set_groups()
 			italic = config.italics.strings or false,
 		},
 		Character = { fg = colors.stringText },
-		Number = { fg = colors.mainText, bold = true },
+		Number = { fg = colors.syntaxConstant },
 		Boolean = { fg = colors.syntaxConstant },
 		Float = { link = "Number" },
 

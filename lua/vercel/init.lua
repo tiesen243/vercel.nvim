@@ -317,7 +317,7 @@ function M.set_groups()
 
 		-- Specific languages
 		-- overrides
-		["@property.json"] = { fg = colors.syntaxProperty }, -- For json
+		["@label.json"] = { fg = colors.syntaxProperty }, -- For json
 		["@label.help"] = { link = "@texcolorscheme.uri" }, -- For help files
 		["@texcolorscheme.uri.html"] = { underline = true }, -- For html
 		["@markup.heading"] = { fg = colors.mainText, bold = true }, -- For markdown

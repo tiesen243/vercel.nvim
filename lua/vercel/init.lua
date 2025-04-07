@@ -33,8 +33,8 @@ function M.set_terminal_colors()
 	vim.g.terminal_color_1 = colors.syntaxKeyword
 	vim.g.terminal_color_2 = colors.successText
 	vim.g.terminal_color_3 = colors.syntaxProperty
-	vim.g.terminal_color_4 = colors.syntaxFunction
-	vim.g.terminal_color_5 = colors.syntaxConstant
+	vim.g.terminal_color_4 = colors.syntaxConstant
+	vim.g.terminal_color_5 = colors.syntaxFunction
 	vim.g.terminal_color_6 = colors.stringText
 	vim.g.terminal_color_7 = colors.mainText
 	vim.g.terminal_color_8 = colors.inactiveText
@@ -154,7 +154,7 @@ function M.set_groups()
 		Identifier = { fg = colors.mainText },
 		Function = { fg = colors.syntaxFunction },
 		Method = { fg = colors.syntaxConstant },
-		Property = { fg = colors.syntaxProperty },
+		Property = { fg = utils.shade(colors.syntaxConstant, 0.45) },
 		Field = { link = "Property" },
 		Parameter = { fg = colors.syntaxConstant },
 		Statement = { fg = colors.syntaxKeyword },
@@ -317,7 +317,7 @@ function M.set_groups()
 
 		-- Specific languages
 		-- overrides
-		["@label.json"] = { fg = colors.property }, -- For json
+		["@property.json"] = { fg = colors.syntaxProperty }, -- For json
 		["@label.help"] = { link = "@texcolorscheme.uri" }, -- For help files
 		["@texcolorscheme.uri.html"] = { underline = true }, -- For html
 		["@markup.heading"] = { fg = colors.mainText, bold = true }, -- For markdown

@@ -8,10 +8,8 @@ local M = {}
 function M.setup(options)
 	setmetatable(config, { __index = vim.tbl_extend("force", config.defaults, options) })
 
-	M.integrations = {
-		navic = require("vercel.integrations.navic").highlights(config),
-		bufferline = require("vercel.integrations.bufferline").highlights(config),
-	}
+	M.highlights = { bufferline = {} }
+	M.highlights.bufferline = require("vercel.integrations.bufferline").highlights(config)
 end
 
 function M.colorscheme()
@@ -95,7 +93,7 @@ function M.set_groups()
 		ModeMsg = { link = "Normal" },
 		MsgArea = { link = "Normal" },
 		-- MsgSeparator = {},
-		MoreMsg = { fg = colors.syntaxFunction },
+		MoreMsg = { fg = colors.syntaxConstant },
 		NonText = { fg = colors.lineNumberText },
 		NormalFloat = { bg = colors.popupBackground },
 		FloatBorder = { fg = colors.border },

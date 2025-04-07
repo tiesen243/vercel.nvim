@@ -325,7 +325,7 @@ function M.set_groups()
 		-- semantic highlighting
 		["@lsp.type.namespace"] = { link = "@namespace" },
 		["@lsp.type.type"] = { link = "@function" },
-		["@lsp.type.class"] = { link = "@type" },
+		["@lsp.type.class"] = { link = "@function" },
 		["@lsp.type.enum"] = { link = "@type" },
 		["@lsp.type.enumMember"] = { fg = colors.syntaxFunction },
 		["@lsp.type.interface"] = { link = "@function" },

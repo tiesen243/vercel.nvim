@@ -154,7 +154,7 @@ function M.set_groups()
 		Identifier = { fg = colors.mainText },
 		Function = { fg = colors.syntaxFunction },
 		Method = { fg = colors.syntaxConstant },
-		Property = { fg = utils.shade(colors.syntaxKeyword, 0.45) },
+		Property = { fg = colors.syntaxKeyword },
 		Field = { link = "Property" },
 		Parameter = { fg = colors.syntaxConstant },
 		Statement = { fg = colors.syntaxKeyword },

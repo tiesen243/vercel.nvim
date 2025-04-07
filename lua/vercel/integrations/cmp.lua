@@ -2,6 +2,7 @@ local colors = require("vercel.colors")
 
 local M = {}
 
+--- Completion menu highlights
 function M.highlights()
 	return {
 		CmpItemAbbr = { fg = colors.mainText },

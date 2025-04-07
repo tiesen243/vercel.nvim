@@ -1,5 +1,4 @@
 ---@class Options
----@field theme 'dark' | 'light'
 ---@field transparent boolean
 ---@field italics table<string, boolean>
 ---@field italics.comments boolean

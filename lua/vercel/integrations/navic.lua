@@ -2,6 +2,7 @@ local colors = require("vercel.colors")
 
 local M = {}
 
+--- Navic highlights
 --- @param options Options
 function M.highlights(options)
 	local bg = options.transparent and "NONE" or colors.popupBackground

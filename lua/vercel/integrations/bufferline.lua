@@ -2,6 +2,7 @@ local colors = require("vercel.colors")
 
 local M = {}
 
+--- Bufferline highlights
 --- @param options Options
 function M.highlights(options)
 	local bg = options.transparent and "NONE" or colors.editorBackground

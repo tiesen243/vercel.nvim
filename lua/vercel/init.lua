@@ -325,7 +325,7 @@ function M.set_groups()
 		-- semantic highlighting
 		["@lsp.type.namespace"] = { link = "@namespace" },
 		["@lsp.type.type"] = { link = "@function" },
-		["@lsp.type.class"] = { link = "@function" },
+		["@lsp.type.class"] = { link = "@type" },
 		["@lsp.type.enum"] = { link = "@type" },
 		["@lsp.type.enumMember"] = { fg = colors.syntaxFunction },
 		["@lsp.type.interface"] = { link = "@function" },
@@ -344,11 +344,15 @@ function M.set_groups()
 	}
 
 	-- integrations
-	-- groups = vim.tbl_extend("force", groups, cmp.highlights())
+	groups = vim.tbl_extend("force", groups, require("vercel.integrations.cmp").highlights())
+	groups = vim.tbl_extend("force", groups, require("vercel.integrations.navic").highlights(config))
 
 	-- overrides
-	groups =
-		vim.tbl_extend("force", groups, type(config.overrides) == "function" and config.overrides() or config.overrides)
+	groups = vim.tbl_extend(
+		"force",
+		groups,
+		type(config.overrides) == "function" and config.overrides(config) or config.overrides
+	)
 
 	for group, parameters in pairs(groups) do
 		vim.api.nvim_set_hl(0, group, parameters)

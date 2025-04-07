@@ -8,3 +8,4 @@
 ---@field italics.strings boolean
 ---@field italics.variables boolean
 ---@field italics.bufferline boolean
+---@field overrides table<string, table<string, string>> | function(options: Options): table<string, table<string, string>>

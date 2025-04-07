@@ -6,7 +6,7 @@ local M = {}
 function M.highlights(options)
 	local bg = options.transparent and "NONE" or colors.popupBackground
 
-	local groups = {
+	return {
 		NavicIconsFile = { bg = bg },
 		NavicIconsModule = { bg = bg },
 		NavicIconsNamespace = { bg = bg },
@@ -36,10 +36,6 @@ function M.highlights(options)
 		NavicText = { bg = bg },
 		NavicSeparator = { bg = bg },
 	}
-
-	for group, parameters in pairs(groups) do
-		vim.api.nvim_set_hl(0, group, parameters)
-	end
 end
 
 return M

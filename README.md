@@ -1,5 +1,5 @@
 
-# Vercal Theme
+# Vercel Theme
 
 ## Preview
 

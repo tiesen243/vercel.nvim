@@ -160,7 +160,7 @@ function M.set_groups()
 		Conditional = { fg = colors.syntaxKeyword },
 		-- Repeat = {},
 		Label = { fg = colors.syntaxFunction },
-		Operator = { fg = colors.errorText },
+		Operator = { fg = colors.syntaxKeyword },
 		Keyword = { link = "Statement", italic = config.italics.keywords or false },
 		Exception = { fg = colors.syntaxKeyword },
 

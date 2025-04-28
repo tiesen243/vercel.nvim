@@ -31,7 +31,6 @@ if vim.o.background == "light" then
 else
 	M.editorBackground = config.transparent and "NONE" or hsl(240, 10, 3.9)
 	M.popupBackground = hsl(240, 3.7, 15.9)
-	M.floatingWindowBackground = hsl(0, 0, 13)
 	M.menuOptionBackground = hsl(0, 0, 17)
 
 	M.mainText = hsl(0, 0, 93)
@@ -47,7 +46,7 @@ else
 	M.syntaxProperty = hsl(0, 0, 93)
 
 	M.errorText = hsl(5, 61, 54)
-	M.warningText = hsl(23, 88, 58)
+	M.warningText = hsl(40, 71, 73)
 	M.commentText = hsl(0, 0, 64)
 	M.stringText = hsl(131, 43, 57)
 	M.successText = hsl(142.1, 76.2, 36.3)

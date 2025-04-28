@@ -29,21 +29,21 @@ end
 
 function M.set_terminal_colors()
 	vim.g.terminal_color_0 = colors.editorBackground
-	vim.g.terminal_color_1 = colors.syntaxKeyword
+	vim.g.terminal_color_1 = colors.errorText
 	vim.g.terminal_color_2 = colors.successText
-	vim.g.terminal_color_3 = colors.syntaxProperty
+	vim.g.terminal_color_3 = colors.warningText
 	vim.g.terminal_color_4 = colors.syntaxConstant
 	vim.g.terminal_color_5 = colors.syntaxFunction
 	vim.g.terminal_color_6 = colors.stringText
 	vim.g.terminal_color_7 = colors.mainText
-	vim.g.terminal_color_8 = colors.inactiveText
+	vim.g.terminal_color_8 = colors.editorBackground
 	vim.g.terminal_color_9 = colors.errorText
-	vim.g.terminal_color_10 = colors.stringText
+	vim.g.terminal_color_10 = colors.successText
 	vim.g.terminal_color_11 = colors.warningText
-	vim.g.terminal_color_12 = colors.syntaxProperty
-	vim.g.terminal_color_13 = colors.syntaxKeyword
+	vim.g.terminal_color_12 = colors.syntaxConstant
+	vim.g.terminal_color_13 = colors.syntaxFunction
 	vim.g.terminal_color_14 = colors.stringText
-	vim.g.terminal_color_15 = colors.commentText
+	vim.g.terminal_color_15 = colors.mainText
 	vim.g.terminal_color_background = colors.editorBackground
 	vim.g.terminal_color_foreground = colors.mainText
 end
@@ -70,7 +70,7 @@ function M.set_groups()
 		CursorIM = { link = "Cursor" },
 		CursorLine = { bg = colors.popupBackground },
 		CursorColumn = { link = "CursorLine" },
-		Directory = { fg = colors.syntaxConstant },
+		Directory = { fg = colors.mainText },
 		DiffAdd = { bg = bg, fg = diff_add },
 		DiffChange = { bg = bg, fg = diff_change },
 		DiffDelete = { bg = bg, fg = diff_delete },
@@ -96,7 +96,7 @@ function M.set_groups()
 		-- MsgSeparator = {},
 		MoreMsg = { fg = colors.syntaxConstant },
 		NonText = { fg = colors.lineNumberText },
-		NormalFloat = { bg = colors.floatingWindowBackground },
+		NormalFloat = { bg = bg },
 		FloatBorder = { fg = colors.border },
 		NormalNC = { link = "Normal" },
 		Pmenu = { link = "NormalFloat" },
@@ -160,7 +160,7 @@ function M.set_groups()
 		Conditional = { fg = colors.syntaxKeyword },
 		-- Repeat = {},
 		Label = { fg = colors.syntaxFunction },
-		Operator = { fg = colors.syntaxProperty },
+		Operator = { fg = colors.errorText },
 		Keyword = { link = "Statement", italic = config.italics.keywords or false },
 		Exception = { fg = colors.syntaxKeyword },
 

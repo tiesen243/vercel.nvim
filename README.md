@@ -28,7 +28,7 @@ use 'tiesen243/vercel.nvim'
 
 ## Configuration
 
-To configure the plugin, you can call require('my-theme').setup({}), passing the table with the values in it. The following are the **defaults**:
+To configure the plugin, you can call require('vercel').setup({}), passing the table with the values in it. The following are the **defaults**:
 
 ```lua
 require('vercel').setup({
@@ -60,6 +60,22 @@ To use the theme with [bufferline.nvim](https://github.com/akinsho/bufferline.nv
 require('bufferline').setup({
     highlights = require('vercel').highlights.bufferline,
 })
+```
+
+#### Neo-tree.nvim
+
+For better experience with this theme, I recommend changing the folder icons to:
+
+```lua
+require('neo-tree').setup({
+  default_component_configs = {
+    icon = {
+      folder_closed = "",
+      folder_open = "",
+      folder_empty = "",
+    },
+  }
+}
 ```
 
 ## Contributing

@@ -1,5 +1,8 @@
-
 # Vercel Theme
+
+<a href="https://dotfyle.com/plugins/tiesen243/vercel.nvim">
+  <img src="https://dotfyle.com/plugins/tiesen243/vercel.nvim/shield" />
+</a>
 
 ## Preview
 
@@ -10,7 +13,6 @@
 ### Dark Theme
 
 ![Dark Theme](./assets/preview-dark.png)
-
 
 ## Installation
 

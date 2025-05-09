@@ -338,8 +338,12 @@ function M.set_groups()
 		["@lsp.type.variable"] = { link = "@text" },
 		["@lsp.typemod.function"] = { link = "@function" },
 		["@lsp.typemod.parameter.declaration"] = { link = "@text" },
+
 		["@lsp.typemod.variable.readonly"] = { link = "@text" },
 		["@lsp.typemod.variable.declaration"] = { fg = colors.syntaxConstant },
+
+		["@lsp.typemod.variable.readonly.typescriptreact"] = { fg = colors.syntaxConstant },
+		["@lsp.typemod.function.declaration.typescriptreact"] = { fg = colors.syntaxConstant },
 	}
 
 	-- integrations

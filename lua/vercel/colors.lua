@@ -1,4 +1,3 @@
-local config = require("vercel.config")
 local hsl = require("vercel.utils").hsl
 
 local M = {
@@ -7,7 +6,7 @@ local M = {
 }
 
 if vim.o.background == "light" then
-	M.editorBackground = config.transparent and "NONE" or hsl(0, 0, 100)
+	M.editorBackground = hsl(0, 0, 100)
 	M.popupBackground = hsl(240, 4.8, 95.9)
 	M.menuOptionBackground = hsl(0, 0, 74)
 
@@ -29,7 +28,7 @@ if vim.o.background == "light" then
 	M.stringText = hsl(139, 79, 28)
 	M.successText = hsl(142.1, 76.2, 36.3)
 else
-	M.editorBackground = config.transparent and "NONE" or hsl(240, 10, 3.9)
+	M.editorBackground = hsl(240, 10, 3.9)
 	M.popupBackground = hsl(240, 3.7, 15.9)
 	M.menuOptionBackground = hsl(0, 0, 17)
 

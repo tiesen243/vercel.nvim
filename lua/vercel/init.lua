@@ -111,11 +111,11 @@ function M.set_groups()
 		StatusLine = { fg = colors.mainText, bg = bg },
 		StatusLineNC = {
 			fg = colors.inactiveText,
-			bg = colors.editorBackground,
+			bg = config.transparent and "NONE" or colors.popupBackground,
 		},
 		TabLine = {
-			bg = colors.editorBackground,
 			fg = colors.inactiveText,
+			bg = colors.editorBackground,
 		},
 		TabLineFill = { link = "TabLine" },
 		TabLineSel = {

@@ -1,10 +1,5 @@
 ---@class Options
+---@field theme 'light' | 'dark'
 ---@field transparent boolean
----@field italics table<string, boolean>
----@field italics.comments boolean
----@field italics.keywords boolean
----@field italics.functions boolean
----@field italics.strings boolean
----@field italics.variables boolean
----@field italics.bufferline boolean
+---@field italics { comments: boolean, keywords: boolean, functions: boolean, strings: boolean, variables: boolean, bufferline: boolean }
 ---@field overrides table<string, table<string, string>> | function(options: Options): table<string, table<string, string>>

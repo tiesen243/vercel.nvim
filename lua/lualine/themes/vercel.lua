@@ -1,48 +1,48 @@
-local config = require("vercel.config")
-local colors = require("vercel.colors")
+local config = require("vercel.init").config
+local colors = require("vercel.colors").getColors(config.theme)
 
 local M = {}
 
 M.normal = {
-	a = { fg = colors.editorBackground, bg = colors.syntaxConstant, gui = "bold" },
-	b = { fg = colors.syntaxConstant, bg = colors.editorBackground },
-	c = { fg = colors.mainText, bg = config.transparent and "NONE" or colors.popupBackground },
+	a = { fg = colors.background, bg = colors.blue, gui = "bold" },
+	b = { fg = colors.blue, bg = colors.background },
+	c = { fg = colors.foreground, bg = config.transparent and "NONE" or colors.popup },
 }
 
 M.visual = {
-	a = { fg = colors.editorBackground, bg = colors.warningText, gui = "bold" },
-	b = { fg = colors.warningText, bg = colors.editorBackground },
-	c = { fg = colors.mainText, bg = config.transparent and "NONE" or colors.popupBackground },
+	a = { fg = colors.background, bg = colors.yellow, gui = "bold" },
+	b = { fg = colors.yellow, bg = colors.background },
+	c = { fg = colors.foreground, bg = config.transparent and "NONE" or colors.popup },
 }
 
 M.inactive = {
-	a = { fg = colors.editorBackground, bg = colors.editorBackground, gui = "bold" },
-	b = { fg = colors.commentText, bg = colors.editorBackground },
-	c = { fg = colors.mainText, bg = config.transparent and "NONE" or colors.popupBackground },
+	a = { fg = colors.background, bg = colors.mutedForeground, gui = "bold" },
+	b = { fg = colors.mutedForeground, bg = colors.background },
+	c = { fg = colors.foreground, bg = config.transparent and "NONE" or colors.popup },
 }
 
 M.replace = {
-	a = { fg = colors.editorBackground, bg = colors.errorText, gui = "bold" },
-	b = { fg = colors.errorText, bg = colors.editorBackground },
-	c = { fg = colors.mainText, bg = config.transparent and "NONE" or colors.popupBackground },
+	a = { fg = colors.background, bg = colors.red, gui = "bold" },
+	b = { fg = colors.red, bg = colors.background },
+	c = { fg = colors.foreground, bg = config.transparent and "NONE" or colors.popup },
 }
 
 M.insert = {
-	a = { fg = colors.editorBackground, bg = colors.successText, gui = "bold" },
-	b = { fg = colors.successText, bg = colors.editorBackground },
-	c = { fg = colors.mainText, bg = config.transparent and "NONE" or colors.popupBackground },
+	a = { fg = colors.background, bg = colors.green, gui = "bold" },
+	b = { fg = colors.green, bg = colors.background },
+	c = { fg = colors.foreground, bg = config.transparent and "NONE" or colors.popup },
 }
 
 M.terminal = {
-	a = { fg = colors.editorBackground, bg = colors.syntaxFunction, gui = "bold" },
-	b = { fg = colors.syntaxFunction, bg = colors.editorBackground },
-	c = { fg = colors.mainText, bg = config.transparent and "NONE" or colors.popupBackground },
+	a = { fg = colors.background, bg = colors.puple, gui = "bold" },
+	b = { fg = colors.puple, bg = colors.background },
+	c = { fg = colors.foreground, bg = config.transparent and "NONE" or colors.popup },
 }
 
 M.command = {
-	a = { fg = colors.editorBackground, bg = colors.syntaxKeyword, gui = "bold" },
-	b = { fg = colors.syntaxKeyword, bg = colors.editorBackground },
-	c = { fg = colors.ma, bg = config.transparent and "NONE" or colors.popupBackground },
+	a = { fg = colors.background, bg = colors.orange, gui = "bold" },
+	b = { fg = colors.orange, bg = colors.background },
+	c = { fg = colors.foreground, bg = config.transparent and "NONE" or colors.popup },
 }
 
 return M

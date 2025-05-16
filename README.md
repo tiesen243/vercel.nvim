@@ -33,24 +33,30 @@ use 'tiesen243/vercel.nvim'
 To configure the plugin, you can call require('vercel').setup({}), passing the table with the values in it. The following are the **defaults**:
 
 ```lua
-require('vercel').setup({
-    -- NOTE: if your configuration sets vim.o.background in your configuration for Neovim,
-    -- the following setting will do nothing, since it'll be overriden.
-    transparent = false, -- Boolean: Sets the background to transparent
-    italics = {
-        comments = true, -- Boolean: Italicizes comments
-        keywords = true, -- Boolean: Italicizes keywords
-        functions = true, -- Boolean: Italicizes functions
-        strings = true, -- Boolean: Italicizes strings
-        variables = true, -- Boolean: Italicizes variables
-    },
-    overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
-})
+{
+    "tiesen243/vercel.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require("vercel").setup({
+            theme = "light"        -- String: Sets the theme to light or dark (Default: light)
+            transparent = false,   -- Boolean: Sets the background to transparent (Default: false)
+            italics = {
+                comments = true,   -- Boolean: Italicizes comments (Default: true)
+                keywords = true,   -- Boolean: Italicizes keywords (Default: true)
+                functions = true,  -- Boolean: Italicizes functions (Default: true)
+                strings = true,    -- Boolean: Italicizes strings (Default: true)
+                variables = true,  -- Boolean: Italicizes variables (Default: true)
+                bufferline = false -- Boolean: Italicizes bufferline (Default: false)
+            },
+            overrides = {},        -- A dictionary of group names, can be a function returning a dictionary or a table.
+        })
+
+        -- This must be called before setting the colorscheme, otherwise it will always default to light mode
+        vim.cmd.colorscheme("vercel")
+    end,
+}
 ```
-
-- **The `colorscheme()` function**
-
-This function can be used to set the colorscheme in your editor, however, if it doesn't work for you, you can always use `vim.cmd.colorscheme('vercel')`.
 
 ### Specifics for Some Plugins
 

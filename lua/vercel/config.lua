@@ -1,5 +1,7 @@
 local config = {
+	---@type Options
 	defaults = {
+		theme = "light",
 		transparent = false,
 		italics = {
 			comments = true,

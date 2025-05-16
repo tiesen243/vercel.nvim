@@ -195,11 +195,12 @@ function M.set_groups()
 		Error = { link = "ErrorMsg" },
 		Todo = { fg = colors.warningText, bold = true },
 
-		-- LspReferenceText = {},
-		-- LspReferenceRead = {},
-		-- LspReferenceWrite = {},
 		-- LspCodeLens = {},
 		-- LspCodeLensSeparator = {},
+		LspInlayHint = { link = "Comment" },
+		-- LspReferenceRead = {},
+		-- LspReferenceText = {},
+		-- LspReferenceWrite = {},
 		-- LspSignatureActiveParameter = {},
 
 		DiagnosticError = { link = "Error" },

@@ -346,8 +346,8 @@ function M.set_groups()
 		["@lsp.mod.local.typescript"] = { fg = colors.foreground },
 		["@lsp.typemod.property.declaration.typescript"] = { fg = colors.foreground },
 		["@lsp.typemod.variable.declaration.typescript"] = { fg = colors.blue },
-		["@lsp.typemod.variable.defaultLibrary.typescript"] = { fg = colors.foreground },
 		["@lsp.typemod.function.declaration.typescript"] = { fg = colors.puple },
+		["@lsp.typemod.variable.defaultLibrary.typescript"] = { fg = colors.foreground },
 
 		["@lsp.mod.declaration.typescriptreact"] = { fg = colors.puple },
 		["@lsp.typemod.variable.local.typescriptreact"] = { fg = colors.foreground },

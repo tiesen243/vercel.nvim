@@ -66,7 +66,13 @@ To use the theme with [bufferline.nvim](https://github.com/akinsho/bufferline.nv
 
 ```lua
 require('bufferline').setup({
-    highlights = require('vercel').highlights.bufferline,
+  highlights = function()
+    local status_ok, vercel = pcall(require, "vercel")
+    if not status_ok then
+      return {}
+    end
+    return vercel.highlights.bufferline
+  end,
 })
 ```
 

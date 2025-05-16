@@ -116,7 +116,7 @@ function M.set_groups()
 		},
 		TabLine = {
 			fg = M.colors.mutedForeground,
-			bg = M.config.transparent and "NONE" or M.colors.popup,
+			bg = bg,
 		},
 		TabLineFill = { link = "TabLine" },
 		TabLineSel = {

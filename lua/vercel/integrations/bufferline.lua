@@ -41,7 +41,7 @@ function M.highlights(options)
 			bg = bg,
 		},
 		close_button_selected = {
-			fg = colors.red,
+			fg = colors.foreground,
 			bg = bg,
 		},
 
@@ -50,8 +50,9 @@ function M.highlights(options)
 			bg = bg,
 		},
 		buffer_selected = {
-			fg = colors.foreground,
+			fg = colors.orange,
 			bg = bg,
+			bold = false,
 		},
 
 		numbers = {
@@ -229,7 +230,7 @@ function M.highlights(options)
 		},
 
 		indicator_selected = {
-			fg = colors.red,
+			fg = colors.foreground,
 			bg = bg,
 		},
 		indicator_visible = {

@@ -8,9 +8,8 @@ local M = {}
 function M.setup(options)
 	setmetatable(config, { __index = vim.tbl_extend("force", config.defaults, options) })
 
-	M.highlights = { bufferline = {}, navic = {} }
+	M.highlights = { bufferline = {} }
 	M.highlights.bufferline = require("vercel.integrations.bufferline").highlights(config)
-	M.highlights.navic = require("vercel.integrations.navic").highlights(config)
 end
 
 function M.colorscheme()
@@ -28,149 +27,149 @@ function M.colorscheme()
 end
 
 function M.set_terminal_colors()
-	vim.g.terminal_color_0 = colors.editorBackground
-	vim.g.terminal_color_1 = colors.errorText
-	vim.g.terminal_color_2 = colors.successText
-	vim.g.terminal_color_3 = colors.warningText
-	vim.g.terminal_color_4 = colors.syntaxConstant
-	vim.g.terminal_color_5 = colors.syntaxFunction
-	vim.g.terminal_color_6 = colors.stringText
-	vim.g.terminal_color_7 = colors.mainText
-	vim.g.terminal_color_8 = colors.editorBackground
-	vim.g.terminal_color_9 = colors.errorText
-	vim.g.terminal_color_10 = colors.successText
-	vim.g.terminal_color_11 = colors.warningText
-	vim.g.terminal_color_12 = colors.syntaxConstant
-	vim.g.terminal_color_13 = colors.syntaxFunction
-	vim.g.terminal_color_14 = colors.stringText
-	vim.g.terminal_color_15 = colors.mainText
-	vim.g.terminal_color_background = colors.editorBackground
-	vim.g.terminal_color_foreground = colors.mainText
+	vim.g.terminal_color_0 = colors.background
+	vim.g.terminal_color_1 = colors.error
+	vim.g.terminal_color_2 = colors.green
+	vim.g.terminal_color_3 = colors.yellow
+	vim.g.terminal_color_4 = colors.blue
+	vim.g.terminal_color_5 = colors.puple
+	vim.g.terminal_color_6 = colors.string
+	vim.g.terminal_color_7 = colors.foreground
+	vim.g.terminal_color_8 = colors.background
+	vim.g.terminal_color_9 = colors.error
+	vim.g.terminal_color_10 = colors.green
+	vim.g.terminal_color_11 = colors.yellow
+	vim.g.terminal_color_12 = colors.blue
+	vim.g.terminal_color_13 = colors.puple
+	vim.g.terminal_color_14 = colors.string
+	vim.g.terminal_color_15 = colors.foreground
+	vim.g.terminal_color_background = colors.background
+	vim.g.terminal_color_foreground = colors.foreground
 end
 
 function M.set_groups()
-	local bg = config.transparent and "NONE" or colors.editorBackground
-	local diff_add = utils.shade(colors.successText, 0.5, colors.editorBackground)
-	local diff_delete = utils.shade(colors.syntaxKeyword, 0.5, colors.editorBackground)
-	local diff_change = utils.shade(colors.syntaxFunction, 0.5, colors.editorBackground)
-	local diff_text = utils.shade(colors.syntaxProperty, 0.5, colors.editorBackground)
+	local bg = config.transparent and "NONE" or colors.background
+	local diff_add = utils.shade(colors.green, 0.5, colors.background)
+	local diff_delete = utils.shade(colors.red, 0.5, colors.background)
+	local diff_change = utils.shade(colors.puple, 0.5, colors.background)
+	local diff_text = utils.shade(colors.property, 0.5, colors.background)
 
 	local groups = {
 		-- base
-		Normal = { fg = colors.mainText, bg = bg },
-		LineNrAbove = { fg = colors.lineNumberText },
-		LineNr = { fg = colors.lineNumberTextActive },
-		LineNrBelow = { fg = colors.lineNumberText },
+		Normal = { fg = colors.foreground, bg = bg },
+		LineNrAbove = { fg = colors.lineNumber },
+		LineNr = { fg = colors.lineNumberActive },
+		LineNrBelow = { fg = colors.lineNumber },
 		ColorColumn = {
-			bg = utils.shade(colors.stringText, 0.5, colors.editorBackground),
+			bg = utils.shade(colors.string, 0.5, colors.background),
 		},
 		Conceal = {},
-		Cursor = { fg = colors.editorBackground, bg = colors.mainText },
+		Cursor = { fg = colors.background, bg = colors.foreground },
 		lCursor = { link = "Cursor" },
 		CursorIM = { link = "Cursor" },
-		CursorLine = { bg = colors.popupBackground },
+		CursorLine = { bg = colors.popup },
 		CursorColumn = { link = "CursorLine" },
-		Directory = { fg = colors.mainText },
+		Directory = { fg = colors.foreground },
 		DiffAdd = { bg = bg, fg = diff_add },
 		DiffChange = { bg = bg, fg = diff_change },
 		DiffDelete = { bg = bg, fg = diff_delete },
 		DiffText = { bg = bg, fg = diff_text },
-		EndOfBuffer = { fg = colors.syntaxConstant },
+		EndOfBuffer = { fg = colors.blue },
 		TermCursor = { link = "Cursor" },
 		TermCursorNC = { link = "Cursor" },
-		ErrorMsg = { fg = colors.syntaxKeyword },
+		ErrorMsg = { fg = colors.red },
 		VertSplit = { fg = colors.border, bg = "NONE" },
 		Winseparator = { link = "VertSplit" },
 		SignColumn = { link = "Normal" },
-		Folded = { fg = colors.mainText, bg = colors.popupBackground },
+		Folded = { fg = colors.foreground, bg = colors.popup },
 		FoldColumn = { link = "SignColumn" },
 		IncSearch = {
-			bg = utils.mix(colors.syntaxConstant, colors.editorBackground, math.abs(0.30)),
-			fg = colors.editorBackground,
+			bg = utils.mix(colors.blue, colors.background, math.abs(0.30)),
+			fg = colors.background,
 		},
 		Substitute = { link = "IncSearch" },
-		CursorLineNr = { fg = colors.commentText },
-		MatchParen = { fg = colors.syntaxKeyword },
+		CursorLineNr = { fg = colors.comment },
+		MatchParen = { fg = colors.red },
 		ModeMsg = { link = "Normal" },
 		MsgArea = { link = "Normal" },
 		-- MsgSeparator = {},
-		MoreMsg = { fg = colors.syntaxConstant },
-		NonText = { fg = colors.lineNumberText },
+		MoreMsg = { fg = colors.blue },
+		NonText = { fg = colors.lineNumber },
 		NormalFloat = { bg = bg },
 		FloatBorder = { fg = colors.border },
 		NormalNC = { link = "Normal" },
 		Pmenu = { link = "NormalFloat" },
-		PmenuSel = { bg = colors.menuOptionBackground },
+		PmenuSel = { bg = colors.menu },
 		PmenuSbar = {
-			bg = utils.shade(colors.editorBackground, 0.5, colors.editorBackground),
+			bg = utils.shade(colors.background, 0.5, colors.background),
 		},
-		PmenuThumb = { bg = utils.shade(colors.editorBackground, 0.20) },
-		Question = { fg = colors.syntaxFunction },
-		QuickFixLine = { fg = colors.syntaxFunction },
-		SpecialKey = { fg = colors.syntaxProperty },
-		StatusLine = { fg = colors.mainText, bg = bg },
+		PmenuThumb = { bg = utils.shade(colors.background, 0.20) },
+		Question = { fg = colors.puple },
+		QuickFixLine = { fg = colors.puple },
+		SpecialKey = { fg = colors.property },
+		StatusLine = { fg = colors.foreground, bg = bg },
 		StatusLineNC = {
-			fg = colors.inactiveText,
-			bg = config.transparent and "NONE" or colors.popupBackground,
+			fg = colors.mutedForeground,
+			bg = config.transparent and "NONE" or colors.popup,
 		},
 		TabLine = {
-			fg = colors.inactiveText,
-			bg = colors.editorBackground,
+			fg = colors.mutedForeground,
+			bg = colors.background,
 		},
 		TabLineFill = { link = "TabLine" },
 		TabLineSel = {
-			bg = colors.editorBackground,
-			fg = colors.mainText,
+			bg = colors.background,
+			fg = colors.foreground,
 		},
-		Search = { bg = utils.shade(colors.stringText, 0.70, colors.bg) },
-		SpellBad = { undercurl = true, sp = colors.syntaxKeyword },
-		SpellCap = { undercurl = true, sp = colors.syntaxFunction },
-		SpellLocal = { undercurl = true, sp = colors.syntaxConstant },
-		SpellRare = { undercurl = true, sp = colors.warningText },
-		Title = { fg = colors.syntaxConstant, bold = true },
+		Search = { bg = utils.shade(colors.string, 0.70, colors.bg) },
+		SpellBad = { undercurl = true, sp = colors.red },
+		SpellCap = { undercurl = true, sp = colors.puple },
+		SpellLocal = { undercurl = true, sp = colors.blue },
+		SpellRare = { undercurl = true, sp = colors.yellow },
+		Title = { fg = colors.blue, bold = true },
 		Visual = {
-			bg = utils.shade(colors.syntaxConstant, 0.40, colors.editorBackground),
+			bg = utils.shade(colors.blue, 0.40, colors.background),
 		},
 		VisualNOS = { link = "Visual" },
-		WarningMsg = { fg = colors.warningText },
-		Whitespace = { fg = colors.editorBackground },
-		WildMenu = { bg = colors.menuOptionBackground },
+		WarningMsg = { fg = colors.yellow },
+		Whitespace = { fg = colors.background },
+		WildMenu = { bg = colors.menu },
 		Comment = {
-			fg = colors.commentText,
+			fg = colors.comment,
 			italic = config.italics.comments or false,
 		},
 
-		Constant = { fg = colors.syntaxConstant },
+		Constant = { fg = colors.blue },
 		String = {
-			fg = colors.stringText,
+			fg = colors.string,
 			italic = config.italics.strings or false,
 		},
-		Character = { fg = colors.stringText },
-		Number = { fg = colors.syntaxConstant },
-		Boolean = { fg = colors.syntaxConstant },
+		Character = { fg = colors.string },
+		Number = { fg = colors.blue },
+		Boolean = { fg = colors.blue },
 		Float = { link = "Number" },
 
-		Identifier = { fg = colors.mainText },
-		Function = { fg = colors.syntaxFunction },
-		Method = { fg = colors.syntaxConstant },
-		Property = { fg = colors.syntaxKeyword },
+		Identifier = { fg = colors.foreground },
+		Function = { fg = colors.puple },
+		Method = { fg = colors.blue },
+		Property = { fg = colors.red },
 		Field = { link = "Property" },
-		Parameter = { fg = colors.syntaxConstant },
-		Statement = { fg = colors.syntaxKeyword },
-		Conditional = { fg = colors.syntaxKeyword },
+		Parameter = { fg = colors.orange },
+		Statement = { fg = colors.red },
+		Conditional = { fg = colors.red },
 		-- Repeat = {},
-		Label = { fg = colors.syntaxFunction },
-		Operator = { fg = colors.syntaxKeyword },
+		Label = { fg = colors.puple },
+		Operator = { fg = colors.red },
 		Keyword = { link = "Statement", italic = config.italics.keywords or false },
-		Exception = { fg = colors.syntaxKeyword },
+		Exception = { fg = colors.red },
 
 		PreProc = { link = "Keyword" },
 		-- Include = {},
-		Define = { fg = colors.syntaxConstant },
+		Define = { fg = colors.blue },
 		Macro = { link = "Define" },
-		PreCondit = { fg = colors.syntaxKeyword },
+		PreCondit = { fg = colors.red },
 
-		Type = { fg = colors.syntaxConstant },
+		Type = { fg = colors.puple },
 		Struct = { link = "Type" },
 		Class = { link = "Type" },
 
@@ -179,21 +178,21 @@ function M.set_groups()
 		-- Typedef = {},
 
 		Attribute = { link = "Character" },
-		Punctuation = { fg = colors.syntaxProperty },
-		Special = { fg = colors.syntaxProperty },
+		Punctuation = { fg = colors.property },
+		Special = { fg = colors.property },
 
-		SpecialChar = { fg = colors.syntaxKeyword },
-		Tag = { fg = colors.stringText },
-		Delimiter = { fg = colors.syntaxProperty },
+		SpecialChar = { fg = colors.red },
+		Tag = { fg = colors.string },
+		Delimiter = { fg = colors.property },
 		-- SpecialComment = {},
-		Debug = { fg = colors.mainText },
+		Debug = { fg = colors.foreground },
 
 		Underlined = { underline = true },
 		Bold = { bold = true },
 		Italic = { italic = true },
-		Ignore = { fg = colors.editorBackground },
+		Ignore = { fg = colors.background },
 		Error = { link = "ErrorMsg" },
-		Todo = { fg = colors.warningText, bold = true },
+		Todo = { fg = colors.yellow, bold = true },
 
 		-- LspCodeLens = {},
 		-- LspCodeLensSeparator = {},
@@ -205,8 +204,8 @@ function M.set_groups()
 
 		DiagnosticError = { link = "Error" },
 		DiagnosticWarn = { link = "WarningMsg" },
-		DiagnosticInfo = { fg = colors.syntaxFunction },
-		DiagnosticHint = { fg = colors.syntaxConstant },
+		DiagnosticInfo = { fg = colors.puple },
+		DiagnosticHint = { fg = colors.blue },
 		DiagnosticVirtualTextError = { link = "DiagnosticError" },
 		DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },
 		DiagnosticVirtualTextInfo = { link = "DiagnosticInfo" },
@@ -224,40 +223,40 @@ function M.set_groups()
 		-- DiagnosticSignInfo = {},
 		-- DiagnosticSignHint = {},
 
-		["@text"] = { fg = colors.mainText },
+		["@text"] = { fg = colors.foreground },
 		["@texcolorscheme.literal"] = { link = "Property" },
 		-- ["@texcolorscheme.reference"] = {},
 		["@texcolorscheme.strong"] = { link = "Bold" },
 		["@texcolorscheme.italic"] = { link = "Italic" },
 		["@texcolorscheme.title"] = { link = "Keyword" },
 		["@texcolorscheme.uri"] = {
-			fg = colors.syntaxFunction,
-			sp = colors.syntaxFunction,
+			fg = colors.puple,
+			sp = colors.puple,
 			underline = true,
 		},
 		["@texcolorscheme.underline"] = { link = "Underlined" },
-		["@symbol"] = { fg = colors.syntaxProperty },
+		["@symbol"] = { fg = colors.property },
 		["@texcolorscheme.todo"] = { link = "Todo" },
 		["@comment"] = { link = "Comment" },
 		["@punctuation"] = { link = "Punctuation" },
-		["@punctuation.bracket"] = { fg = colors.mainText },
-		["@punctuation.delimiter"] = { fg = colors.syntaxKeyword },
+		["@punctuation.bracket"] = { fg = colors.foreground },
+		["@punctuation.delimiter"] = { fg = colors.foreground },
 		["@punctuation.terminator.statement"] = { link = "Delimiter" },
-		["@punctuation.special"] = { fg = colors.syntaxKeyword },
-		["@punctuation.separator.keyvalue"] = { fg = colors.syntaxKeyword },
+		["@punctuation.special"] = { fg = colors.red },
+		["@punctuation.separator.keyvalue"] = { fg = colors.red },
 
-		["@texcolorscheme.diff.add"] = { fg = colors.successText },
-		["@texcolorscheme.diff.delete"] = { fg = colors.errorText },
+		["@texcolorscheme.diff.add"] = { fg = colors.green },
+		["@texcolorscheme.diff.delete"] = { fg = colors.error },
 
 		["@constant"] = { link = "Constant" },
-		["@constant.builtin"] = { fg = colors.syntaxFunction },
+		["@constant.builtin"] = { link = "Constant" },
 		["@constancolorscheme.builtin"] = { link = "Keyword" },
 		-- ["@constancolorscheme.macro"] = {},
 		-- ["@define"] = {},
 		-- ["@macro"] = {},
 		["@string"] = { link = "String" },
-		["@string.escape"] = { fg = utils.shade(colors.stringText, 0.45) },
-		["@string.special"] = { fg = utils.shade(colors.syntaxFunction, 0.45) },
+		["@string.escape"] = { fg = utils.shade(colors.string, 0.45) },
+		["@string.special"] = { fg = utils.shade(colors.puple, 0.45) },
 		-- ["@character"] = {},
 		-- ["@character.special"] = {},
 		["@number"] = { link = "Number" },
@@ -275,27 +274,28 @@ function M.set_groups()
 		["@method"] = { link = "Function" },
 		["@field"] = { link = "Property" },
 		["@property"] = { link = "Property" },
-		["@constructor"] = { fg = colors.syntaxFunction },
+		["@constructor"] = { fg = colors.puple },
 		-- ["@conditional"] = {},
 		-- ["@repeat"] = {},
 		["@label"] = { link = "Label" },
 		["@operator"] = { link = "Operator" },
 		["@exception"] = { link = "Exception" },
 		["@variable"] = {
-			fg = colors.mainText,
+			fg = colors.foreground,
 			italic = config.italics.variables or false,
 		},
-		["@variable.builtin"] = { fg = colors.syntaxConstant },
-		["@variable.member"] = { fg = colors.mainText },
+		["@variable.builtin"] = { fg = colors.blue },
+		["@variable.member"] = { fg = colors.foreground },
 		["@variable.parameter"] = {
-			fg = colors.mainText,
+			fg = colors.foreground,
 			italic = config.italics.variables or false,
 		},
 		["@type"] = { link = "Type" },
-		["@type.definition"] = { fg = colors.mainText },
-		["@type.builtin"] = { fg = colors.syntaxConstant },
-		["@type.qualifier"] = { fg = colors.syntaxFunction },
-		["@type.tsx"] = { fg = colors.mainText },
+		["@type.definition"] = { fg = colors.foreground },
+		["@type.builtin"] = { fg = colors.blue },
+		["@type.qualifier"] = { fg = colors.puple },
+		["@type.tsx"] = { fg = colors.foreground },
+		["@module.tsx"] = { fg = colors.foreground },
 		["@keyword"] = { link = "Keyword" },
 		-- ["@storageclass"] = {},
 		-- ["@structure"] = {},
@@ -303,31 +303,31 @@ function M.set_groups()
 		["@annotation"] = { link = "Label" },
 		-- ["@include"] = {},
 		-- ["@preproc"] = {},
-		["@debug"] = { fg = colors.mainText },
+		["@debug"] = { fg = colors.foreground },
 		["@tag"] = { link = "Tag" },
 		["@tag.builtin"] = { link = "Tag" },
-		["@tag.delimiter"] = { fg = colors.syntaxProperty },
-		["@tag.attribute"] = { fg = colors.syntaxFunction },
-		["@tag.jsx.element"] = { fg = colors.syntaxFunction },
-		["@tag.tsx"] = { fg = colors.syntaxConstant },
-		["@attribute"] = { fg = colors.syntaxConstant },
+		["@tag.delimiter"] = { fg = colors.property },
+		["@tag.attribute"] = { fg = colors.puple },
+		["@tag.jsx.element"] = { fg = colors.puple },
+		["@tag.tsx"] = { fg = colors.blue },
+		["@attribute"] = { fg = colors.blue },
 		["@error"] = { link = "Error" },
 		["@warning"] = { link = "WarningMsg" },
-		["@info"] = { fg = colors.syntaxFunction },
+		["@info"] = { fg = colors.puple },
 
 		-- Specific languages
 		-- overrides
-		["@label.json"] = { fg = colors.syntaxProperty }, -- For json
+		["@label.json"] = { fg = colors.property }, -- For json
 		["@label.help"] = { link = "@texcolorscheme.uri" }, -- For help files
 		["@texcolorscheme.uri.html"] = { underline = true }, -- For html
-		["@markup.heading"] = { fg = colors.mainText, bold = true }, -- For markdown
+		["@markup.heading"] = { fg = colors.foreground, bold = true }, -- For markdown
 
 		-- semantic highlighting
 		["@lsp.type.namespace"] = { link = "@namespace" },
 		["@lsp.type.type"] = { link = "@function" },
 		["@lsp.type.class"] = { link = "@type" },
 		["@lsp.type.enum"] = { link = "@type" },
-		["@lsp.type.enumMember"] = { fg = colors.syntaxFunction },
+		["@lsp.type.enumMember"] = { fg = colors.puple },
 		["@lsp.type.interface"] = { link = "@function" },
 		["@lsp.type.struct"] = { link = "@type" },
 		["@lsp.type.parameter"] = { link = "@parameter" },
@@ -337,14 +337,29 @@ function M.set_groups()
 		["@lsp.type.macro"] = { link = "@label" },
 		["@lsp.type.decorator"] = { link = "@label" },
 		["@lsp.type.variable"] = { link = "@text" },
-		["@lsp.typemod.function"] = { link = "@function" },
-		["@lsp.typemod.parameter.declaration"] = { link = "@text" },
 
-		["@lsp.typemod.variable.readonly"] = { link = "@text" },
-		["@lsp.typemod.variable.declaration"] = { fg = colors.syntaxConstant },
+		-- specific typescriptreact highlights
+		["@type.typescript"] = { fg = colors.foreground },
+		["@lsp.type.variable.typescript"] = { fg = colors.blue },
+		["@lsp.type.property.typescript"] = { fg = colors.foreground },
+		["@lsp.type.typeParameter.typescript"] = { fg = colors.puple },
+		["@lsp.mod.local.typescript"] = { fg = colors.foreground },
+		["@lsp.typemod.property.declaration.typescript"] = { fg = colors.foreground },
+		["@lsp.typemod.variable.declaration.typescript"] = { fg = colors.blue },
+		["@lsp.typemod.variable.defaultLibrary.typescript"] = { fg = colors.foreground },
+		["@lsp.typemod.function.declaration.typescript"] = { fg = colors.puple },
 
-		["@lsp.typemod.variable.readonly.typescriptreact"] = { fg = colors.syntaxConstant },
-		["@lsp.typemod.function.declaration.typescriptreact"] = { fg = colors.syntaxConstant },
+		["@lsp.mod.declaration.typescriptreact"] = { fg = colors.puple },
+		["@lsp.typemod.variable.local.typescriptreact"] = { fg = colors.foreground },
+		["@lsp.typemod.variable.declaration.typescriptreact"] = { fg = colors.blue },
+		["@lsp.typemod.function.declaration.typescriptreact"] = { fg = colors.blue },
+		["@lsp.typemod.property.declaration.typescriptreact"] = { fg = colors.foreground },
+		["@lsp.typemod.variable.defaultLibrary.typescriptreact"] = { fg = colors.blue },
+
+		["@lsp.type.parameter.typescript"] = { fg = colors.foreground },
+		["@lsp.type.parameter.typescriptreact"] = { fg = colors.foreground },
+		["@lsp.typemod.parameter.declaration.typescript"] = { fg = colors.orange },
+		["@lsp.typemod.parameter.declaration.typescriptreact"] = { fg = colors.orange },
 	}
 
 	-- integrations

@@ -34,7 +34,7 @@ function M.set_terminal_colors()
 	vim.g.terminal_color_2 = M.colors.green
 	vim.g.terminal_color_3 = M.colors.yellow
 	vim.g.terminal_color_4 = M.colors.blue
-	vim.g.terminal_color_5 = M.colors.puple
+	vim.g.terminal_color_5 = M.colors.purple
 	vim.g.terminal_color_6 = M.colors.string
 	vim.g.terminal_color_7 = M.colors.foreground
 	vim.g.terminal_color_8 = M.colors.background
@@ -42,7 +42,7 @@ function M.set_terminal_colors()
 	vim.g.terminal_color_10 = M.colors.green
 	vim.g.terminal_color_11 = M.colors.yellow
 	vim.g.terminal_color_12 = M.colors.blue
-	vim.g.terminal_color_13 = M.colors.puple
+	vim.g.terminal_color_13 = M.colors.purple
 	vim.g.terminal_color_14 = M.colors.string
 	vim.g.terminal_color_15 = M.colors.foreground
 	vim.g.terminal_color_background = M.colors.background
@@ -53,7 +53,7 @@ function M.set_groups()
 	local bg = M.config.transparent and "NONE" or M.colors.background
 	local diff_add = M.utils.shade(M.colors.green, 0.5, M.colors.background)
 	local diff_delete = M.utils.shade(M.colors.red, 0.5, M.colors.background)
-	local diff_change = M.utils.shade(M.colors.puple, 0.5, M.colors.background)
+	local diff_change = M.utils.shade(M.colors.purple, 0.5, M.colors.background)
 	local diff_text = M.utils.shade(M.colors.property, 0.5, M.colors.background)
 
 	local groups = {
@@ -106,8 +106,8 @@ function M.set_groups()
 			bg = M.utils.shade(M.colors.background, 0.5, M.colors.background),
 		},
 		PmenuThumb = { bg = M.utils.shade(M.colors.background, 0.20) },
-		Question = { fg = M.colors.puple },
-		QuickFixLine = { fg = M.colors.puple },
+		Question = { fg = M.colors.purple },
+		QuickFixLine = { fg = M.colors.purple },
 		SpecialKey = { fg = M.colors.property },
 		StatusLine = { fg = M.colors.foreground, bg = bg },
 		StatusLineNC = {
@@ -125,7 +125,7 @@ function M.set_groups()
 		},
 		Search = { bg = M.utils.shade(M.colors.string, 0.70, M.colors.bg) },
 		SpellBad = { undercurl = true, sp = M.colors.red },
-		SpellCap = { undercurl = true, sp = M.colors.puple },
+		SpellCap = { undercurl = true, sp = M.colors.purple },
 		SpellLocal = { undercurl = true, sp = M.colors.blue },
 		SpellRare = { undercurl = true, sp = M.colors.yellow },
 		Title = { fg = M.colors.blue, bold = true },
@@ -152,7 +152,7 @@ function M.set_groups()
 		Float = { link = "Number" },
 
 		Identifier = { fg = M.colors.foreground },
-		Function = { fg = M.colors.puple },
+		Function = { fg = M.colors.purple },
 		Method = { fg = M.colors.blue },
 		Property = { fg = M.colors.red },
 		Field = { link = "Property" },
@@ -160,7 +160,7 @@ function M.set_groups()
 		Statement = { fg = M.colors.red },
 		Conditional = { fg = M.colors.red },
 		-- Repeat = {},
-		Label = { fg = M.colors.puple },
+		Label = { fg = M.colors.purple },
 		Operator = { fg = M.colors.red },
 		Keyword = { link = "Statement", italic = M.config.italics.keywords or false },
 		Exception = { fg = M.colors.red },
@@ -171,7 +171,7 @@ function M.set_groups()
 		Macro = { link = "Define" },
 		PreCondit = { fg = M.colors.red },
 
-		Type = { fg = M.colors.puple },
+		Type = { fg = M.colors.purple },
 		Struct = { link = "Type" },
 		Class = { link = "Type" },
 
@@ -206,7 +206,7 @@ function M.set_groups()
 
 		DiagnosticError = { link = "Error" },
 		DiagnosticWarn = { link = "WarningMsg" },
-		DiagnosticInfo = { fg = M.colors.puple },
+		DiagnosticInfo = { fg = M.colors.purple },
 		DiagnosticHint = { fg = M.colors.blue },
 		DiagnosticVirtualTextError = { link = "DiagnosticError" },
 		DiagnosticVirtualTextWarn = { link = "DiagnosticWarn" },
@@ -232,8 +232,8 @@ function M.set_groups()
 		["@texcolorscheme.italic"] = { link = "Italic" },
 		["@texcolorscheme.title"] = { link = "Keyword" },
 		["@texcolorscheme.uri"] = {
-			fg = M.colors.puple,
-			sp = M.colors.puple,
+			fg = M.colors.purple,
+			sp = M.colors.purple,
 			underline = true,
 		},
 		["@texcolorscheme.underline"] = { link = "Underlined" },
@@ -258,7 +258,7 @@ function M.set_groups()
 		-- ["@macro"] = {},
 		["@string"] = { link = "String" },
 		["@string.escape"] = { fg = M.utils.shade(M.colors.string, 0.45) },
-		["@string.special"] = { fg = M.utils.shade(M.colors.puple, 0.45) },
+		["@string.special"] = { fg = M.utils.shade(M.colors.purple, 0.45) },
 		-- ["@character"] = {},
 		-- ["@character.special"] = {},
 		["@number"] = { link = "Number" },
@@ -276,7 +276,7 @@ function M.set_groups()
 		["@method"] = { link = "Function" },
 		["@field"] = { link = "Property" },
 		["@property"] = { link = "Property" },
-		["@constructor"] = { fg = M.colors.puple },
+		["@constructor"] = { fg = M.colors.purple },
 		-- ["@conditional"] = {},
 		-- ["@repeat"] = {},
 		["@label"] = { link = "Label" },
@@ -295,7 +295,7 @@ function M.set_groups()
 		["@type"] = { link = "Type" },
 		["@type.definition"] = { fg = M.colors.foreground },
 		["@type.builtin"] = { fg = M.colors.blue },
-		["@type.qualifier"] = { fg = M.colors.puple },
+		["@type.qualifier"] = { fg = M.colors.purple },
 		["@type.tsx"] = { fg = M.colors.foreground },
 		["@module.tsx"] = { fg = M.colors.foreground },
 		["@keyword"] = { link = "Keyword" },
@@ -309,13 +309,13 @@ function M.set_groups()
 		["@tag"] = { link = "Tag" },
 		["@tag.builtin"] = { link = "Tag" },
 		["@tag.delimiter"] = { fg = M.colors.property },
-		["@tag.attribute"] = { fg = M.colors.puple },
-		["@tag.jsx.element"] = { fg = M.colors.puple },
+		["@tag.attribute"] = { fg = M.colors.purple },
+		["@tag.jsx.element"] = { fg = M.colors.purple },
 		["@tag.tsx"] = { fg = M.colors.blue },
 		["@attribute"] = { fg = M.colors.blue },
 		["@error"] = { link = "Error" },
 		["@warning"] = { link = "WarningMsg" },
-		["@info"] = { fg = M.colors.puple },
+		["@info"] = { fg = M.colors.purple },
 
 		-- Specific languages
 		-- overrides
@@ -329,7 +329,7 @@ function M.set_groups()
 		["@lsp.type.type"] = { link = "@function" },
 		["@lsp.type.class"] = { link = "@type" },
 		["@lsp.type.enum"] = { link = "@type" },
-		["@lsp.type.enumMember"] = { fg = M.colors.puple },
+		["@lsp.type.enumMember"] = { fg = M.colors.purple },
 		["@lsp.type.interface"] = { link = "@function" },
 		["@lsp.type.struct"] = { link = "@type" },
 		["@lsp.type.parameter"] = { link = "@parameter" },
@@ -344,14 +344,14 @@ function M.set_groups()
 		["@type.typescript"] = { fg = M.colors.foreground },
 		["@lsp.type.variable.typescript"] = { fg = M.colors.blue },
 		["@lsp.type.property.typescript"] = { fg = M.colors.foreground },
-		["@lsp.type.typeParameter.typescript"] = { fg = M.colors.puple },
+		["@lsp.type.typeParameter.typescript"] = { fg = M.colors.purple },
 		["@lsp.mod.local.typescript"] = { fg = M.colors.foreground },
 		["@lsp.typemod.property.declaration.typescript"] = { fg = M.colors.foreground },
 		["@lsp.typemod.variable.declaration.typescript"] = { fg = M.colors.blue },
-		["@lsp.typemod.function.declaration.typescript"] = { fg = M.colors.puple },
+		["@lsp.typemod.function.declaration.typescript"] = { fg = M.colors.purple },
 		["@lsp.typemod.variable.defaultLibrary.typescript"] = { fg = M.colors.foreground },
 
-		["@lsp.mod.declaration.typescriptreact"] = { fg = M.colors.puple },
+		["@lsp.mod.declaration.typescriptreact"] = { fg = M.colors.purple },
 		["@lsp.typemod.variable.local.typescriptreact"] = { fg = M.colors.foreground },
 		["@lsp.typemod.variable.declaration.typescriptreact"] = { fg = M.colors.blue },
 		["@lsp.typemod.function.declaration.typescriptreact"] = { fg = M.colors.blue },

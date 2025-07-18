@@ -8,7 +8,7 @@ M.getColors = function(theme)
 	if theme == "light" or vim.o.background == "light" then
 		colors.background = hsl(0, 0, 89.8)
 		colors.foreground = hsl(240, 10, 3.9)
-		colors.mutedForeground = hsl(0, 0, 64)
+		colors.secondary = hsl(0, 0, 64)
 
 		colors.border = hsl(0, 0, 85)
 		colors.lineNumber = hsl(0, 0, 9)
@@ -29,7 +29,7 @@ M.getColors = function(theme)
 	else
 		colors.background = hsl(240, 10, 3.9)
 		colors.foreground = hsl(0, 0, 93)
-		colors.mutedForeground = hsl(0, 0, 64)
+		colors.secondary = hsl(0, 0, 64)
 
 		colors.border = hsl(0, 0, 13)
 		colors.lineNumber = hsl(0, 0, 30)

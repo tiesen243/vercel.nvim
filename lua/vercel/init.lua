@@ -90,7 +90,7 @@ function M.set_groups()
 			fg = M.colors.background,
 		},
 		Substitute = { link = "IncSearch" },
-		CursorLineNr = { fg = M.colors.mutedForeground },
+		CursorLineNr = { fg = M.colors.secondary },
 		MatchParen = { fg = M.colors.red },
 		ModeMsg = { link = "Normal" },
 		MsgArea = { link = "Normal" },
@@ -111,11 +111,11 @@ function M.set_groups()
 		SpecialKey = { fg = M.colors.property },
 		StatusLine = { fg = M.colors.foreground, bg = bg },
 		StatusLineNC = {
-			fg = M.colors.mutedForeground,
+			fg = M.colors.secondary,
 			bg = M.config.transparent and "NONE" or M.colors.popup,
 		},
 		TabLine = {
-			fg = M.colors.mutedForeground,
+			fg = M.colors.secondary,
 			bg = bg,
 		},
 		TabLineFill = { link = "TabLine" },
@@ -137,7 +137,7 @@ function M.set_groups()
 		Whitespace = { fg = M.colors.background },
 		WildMenu = { bg = M.colors.menu },
 		Comment = {
-			fg = M.colors.mutedForeground,
+			fg = M.colors.secondary,
 			italic = M.config.italics.comments or false,
 		},
 
@@ -366,6 +366,8 @@ function M.set_groups()
 
 	-- integrations
 	-- groups = vim.tbl_extend("force", groups, require("vercel.integrations.{pack}").highlights())
+	groups = vim.tbl_extend("force", groups, require("vercel.integrations.blink-cmp").highlights(M.config))
+	groups = vim.tbl_extend("force", groups, require("vercel.integrations.cmp").highlights(M.config))
 
 	-- overrides
 	groups = vim.tbl_extend(

@@ -1,6 +1,5 @@
 local M = {}
 
---- Bufferline highlights
 --- @param options Options
 function M.highlights(options)
 	local colors = require("vercel.colors").getColors(options.theme)
@@ -37,7 +36,7 @@ function M.highlights(options)
 			bg = bg,
 		},
 		close_button_visible = {
-			fg = colors.mutedForeground,
+			fg = colors.secondary,
 			bg = bg,
 		},
 		close_button_selected = {
@@ -56,11 +55,11 @@ function M.highlights(options)
 		},
 
 		numbers = {
-			fg = colors.mutedForeground,
+			fg = colors.secondary,
 			bg = bg,
 		},
 		numbers_visible = {
-			fg = colors.mutedForeground,
+			fg = colors.secondary,
 			bg = bg,
 		},
 		numbers_selected = {
@@ -70,15 +69,15 @@ function M.highlights(options)
 		},
 
 		diagnostic = {
-			fg = colors.mutedForeground,
+			fg = colors.secondary,
 			bg = bg,
 		},
 		diagnostic_visible = {
-			fg = colors.mutedForeground,
+			fg = colors.secondary,
 			bg = bg,
 		},
 		diagnostic_selected = {
-			fg = colors.mutedForeground,
+			fg = colors.secondary,
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},

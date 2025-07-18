@@ -16,8 +16,8 @@ M.visual = {
 }
 
 M.inactive = {
-	a = { fg = colors.background, bg = colors.mutedForeground, gui = "bold" },
-	b = { fg = colors.mutedForeground, bg = colors.background },
+	a = { fg = colors.background, bg = colors.muted, gui = "bold" },
+	b = { fg = colors.muted, bg = colors.background },
 	c = { fg = colors.foreground, bg = config.transparent and "NONE" or colors.popup },
 }
 

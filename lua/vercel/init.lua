@@ -4,8 +4,9 @@ M.colors = require("vercel.colors").getColors("light")
 M.config = require("vercel.config")
 M.utils = require("vercel.utils")
 
----@param options Options
+---@param options table|nil Options
 function M.setup(options)
+	options = options or {}
 	setmetatable(M.config, { __index = vim.tbl_extend("force", M.config.defaults, options) })
 
 	M.colors = require("vercel.colors").getColors(M.config.theme)

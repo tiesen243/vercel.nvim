@@ -14,8 +14,6 @@ function M.setup(options)
 
 	setmetatable(M.config, { __index = vim.tbl_extend("force", M.config.defaults, options) })
 
-	M.colors = require("vercel.colors").getColors(M.config.theme)
-
 	M.highlights = { bufferline = {} }
 	M.highlights.bufferline = require("vercel.integrations.bufferline").highlights(M.config)
 end
@@ -29,6 +27,8 @@ function M.colorscheme()
 	vim.g.VM_theme_set_by_colorscheme = true
 	vim.o.termguicolors = true
 	vim.g.colors_name = "vercel"
+
+	M.colors = require("vercel.colors").getColors(M.config.theme or vim.opt.background:get())
 
 	M.set_terminal_colors()
 	M.set_groups()

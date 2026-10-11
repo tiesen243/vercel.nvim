@@ -4,6 +4,8 @@
   <img src="https://dotfyle.com/plugins/tiesen243/vercel.nvim/shield" />
 </a>
 
+vercel.nvim is a clean, modern Neovim colorscheme inspired by [Vercel's Geist Design System](https://vercel.com/geist/introduction). It brings Vercel’s minimalist, high-contrast, and developer-focused aesthetic directly to your editor.
+
 ## Preview
 
 ### Light Theme
@@ -16,13 +18,19 @@
 
 ## Installation
 
-1. Using `Lazy`:
+1. Using built-in plugin manager
+
+```lua
+vim.pack.add("https://github.com/tiesen243/vercel.nvim")
+```
+
+2. Using `Lazy`:
 
 ```lua
 { 'tiesen243/vercel.nvim' },
 ```
 
-2. Using `Packer`:
+3. Using `Packer`:
 
 ```lua
 use 'tiesen243/vercel.nvim'
@@ -58,7 +66,15 @@ To configure the plugin, you can call require('vercel').setup({}), passing the t
 }
 ```
 
+You can alse using the color tokens to customize the theme:
+
+```lua
+local tokens = require("vercel").tokens
+```
+
 ### Specifics for Some Plugins
+
+Out of the box, the theme automatically configures highlights for `cmp` and `blink.cmp`.
 
 #### Bufferline.nvim
 

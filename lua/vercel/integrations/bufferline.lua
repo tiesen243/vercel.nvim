@@ -2,20 +2,19 @@ local M = {}
 
 --- @param options Options
 function M.highlights(options)
-	local colors = require("vercel.colors").getColors(options.theme)
-
-	local bg = options.transparent and "NONE" or colors.background
+	local tokens = require("vercel.tokens").getTokens(options.theme)
+	local bg = options.transparent and "NONE" or tokens.background[100]
 
 	return {
 		fill = { bg = bg },
 		background = { bg = bg },
 
 		tab = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 		},
 		tab_selected = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 		},
 		tab_separator = {
@@ -27,190 +26,190 @@ function M.highlights(options)
 			bg = bg,
 		},
 		tab_close = {
-			fg = colors.red,
+			fg = tokens.red[600],
 			bg = bg,
 		},
 
 		close_button = {
-			fg = colors.lineNumber,
+			fg = tokens.gray[600],
 			bg = bg,
 		},
 		close_button_visible = {
-			fg = colors.secondary,
+			fg = tokens.gray[900],
 			bg = bg,
 		},
 		close_button_selected = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 		},
 
 		buffer_visible = {
-			fg = colors.lineNumber,
+			fg = tokens.gray[900],
 			bg = bg,
 		},
 		buffer_selected = {
-			fg = colors.orange,
+			fg = tokens.amber[600],
 			bg = bg,
 			bold = false,
 		},
 
 		numbers = {
-			fg = colors.secondary,
+			fg = tokens.gray[900],
 			bg = bg,
 		},
 		numbers_visible = {
-			fg = colors.secondary,
+			fg = tokens.gray[900],
 			bg = bg,
 		},
 		numbers_selected = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 
 		diagnostic = {
-			fg = colors.secondary,
+			fg = tokens.gray[900],
 			bg = bg,
 		},
 		diagnostic_visible = {
-			fg = colors.secondary,
+			fg = tokens.gray[900],
 			bg = bg,
 		},
 		diagnostic_selected = {
-			fg = colors.secondary,
+			fg = tokens.gray[900],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 
 		hint = {
-			fg = colors.green,
+			fg = tokens.green[600],
 			bg = bg,
 		},
 		hint_visible = {
-			fg = colors.green,
+			fg = tokens.green[600],
 			bg = bg,
 		},
 		hint_selected = {
-			fg = colors.green,
+			fg = tokens.green[600],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 		hint_diagnostic = {
-			fg = colors.green,
+			fg = tokens.green[600],
 			bg = bg,
 		},
 		hint_diagnostic_visible = {
-			fg = colors.green,
+			fg = tokens.green[600],
 			bg = bg,
 		},
 		hint_diagnostic_selected = {
-			fg = colors.green,
+			fg = tokens.green[600],
 			bg = bg,
 		},
 
 		info = {
-			fg = colors.blue,
+			fg = tokens.blue[600],
 			bg = bg,
 		},
 		info_visible = {
-			fg = colors.blue,
+			fg = tokens.blue[600],
 			bg = bg,
 		},
 		info_selected = {
-			fg = colors.blue,
+			fg = tokens.blue[600],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 		info_diagnostic = {
-			fg = colors.blue,
+			fg = tokens.blue[600],
 			bg = bg,
 		},
 		info_diagnostic_visible = {
-			fg = colors.blue,
+			fg = tokens.blue[600],
 			bg = bg,
 		},
 		info_diagnostic_selected = {
-			fg = colors.blue,
+			fg = tokens.blue[600],
 			bg = bg,
 		},
 
 		warning = {
-			fg = colors.yellow,
+			fg = tokens.amber[600],
 			bg = bg,
 		},
 		warning_visible = {
-			fg = colors.yellow,
+			fg = tokens.amber[600],
 			bg = bg,
 		},
 		warning_selected = {
-			fg = colors.yellow,
+			fg = tokens.amber[600],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 		warning_diagnostic = {
-			fg = colors.yellow,
+			fg = tokens.amber[600],
 			bg = bg,
 		},
 		warning_diagnostic_visible = {
-			fg = colors.yellow,
+			fg = tokens.amber[600],
 			bg = bg,
 		},
 		warning_diagnostic_selected = {
-			fg = colors.yellow,
+			fg = tokens.amber[600],
 			bg = bg,
 		},
 
 		error = {
-			fg = colors.red,
+			fg = tokens.red[600],
 			bg = bg,
 		},
 		error_visible = {
-			fg = colors.red,
+			fg = tokens.red[600],
 			bg = bg,
 		},
 		error_selected = {
-			fg = colors.red,
+			fg = tokens.red[600],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 		error_diagnostic = {
-			fg = colors.red,
+			fg = tokens.red[600],
 			bg = bg,
 		},
 		error_diagnostic_visible = {
-			fg = colors.red,
+			fg = tokens.red[600],
 			bg = bg,
 		},
 		error_diagnostic_selected = {
-			fg = colors.red,
+			fg = tokens.red[600],
 			bg = bg,
 		},
 
 		modified = {
-			fg = colors.yellow,
+			fg = tokens.amber[600],
 			bg = bg,
 		},
 		modified_visible = {
-			fg = colors.yellow,
+			fg = tokens.amber[600],
 			bg = bg,
 		},
 		modified_selected = {
-			fg = colors.yellow,
+			fg = tokens.amber[600],
 			bg = bg,
 		},
 
 		duplicate_selected = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 		duplicate_visible = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 		duplicate = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
@@ -229,36 +228,36 @@ function M.highlights(options)
 		},
 
 		indicator_selected = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 		},
 		indicator_visible = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 		},
 
 		pick_selected = {
-			fg = colors.red,
+			fg = tokens.red[600],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 		pick_visible = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 		pick = {
-			fg = colors.foreground,
+			fg = tokens.gray[1000],
 			bg = bg,
 			italic = options.italics.bufferline or false,
 		},
 
 		offset_separator = {
-			fg = colors.border,
+			fg = tokens.gray[200],
 			bg = bg,
 		},
 		trunc_marker = {
-			fg = colors.border,
+			fg = tokens.gray[200],
 			bg = bg,
 		},
 	}

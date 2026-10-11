@@ -3,3 +3,15 @@
 ---@field transparent boolean
 ---@field italics { comments: boolean, keywords: boolean, functions: boolean, strings: boolean, variables: boolean, bufferline: boolean }
 ---@field overrides table<string, table<string, string>> | function(options: Options): table<string, table<string, string>>
+
+---@class Tokens
+---@field background table<number, string>
+---@field gray table<number, string>
+---@field gray_alpha table<number, string>
+---@field blue table<number, string>
+---@field red table<number, string>
+---@field amber table<number, string>
+---@field green table<number, string>
+---@field teal table<number, string>
+---@field purple table<number, string>
+---@field pink table<number, string>
